@@ -3017,7 +3017,7 @@ nanomatch@^1.2.9:
 
 "native-gl@https://github.com/devzolo/node-native-gl.git":
   version "1.0.0"
-  resolved "https://github.com/devzolo/node-native-gl.git#ced00e7c106c34a632f9bb30519bb83e98915c83"
+  resolved "https://github.com/devzolo/node-native-gl.git#1172e5fa6f23d5a3ae627cedae445237d482e799"
   dependencies:
     node-addon-api "^2.0.0"
     node-pre-gyp "^0.14.0"
