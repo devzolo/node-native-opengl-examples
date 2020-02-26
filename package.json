@@ -23,8 +23,13 @@
   },
   "scripts": {
     "dev": "nodemon",
-    "start": "ts-node src",
+    "start": "ts-node src/glsl",
     "build": "tsc",
     "test": "jest --coverage"
+  },
+  "dependencies": {
+    "native-gl": "https://github.com/devzolo/node-native-gl.git",
+    "native-glu": "https://github.com/devzolo/node-native-glu.git",
+    "native-glut": "https://github.com/devzolo/node-native-glut.git"
   }
 }
