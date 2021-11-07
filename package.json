@@ -6,7 +6,7 @@
   "author": "Raphael-ZoLo <zolotorevsky@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "tsnd -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules --no-notify src/basic",
+    "dev": "tsnd -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules --no-notify src/basic/helloworld/index.ts",
     "build": "tsc",
     "test": "jest --coverage"
   },

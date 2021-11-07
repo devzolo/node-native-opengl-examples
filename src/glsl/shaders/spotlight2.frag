@@ -1,26 +1,26 @@
 varying vec3 normal;
 varying vec3 sup;
-uniform float interna;	// cos do ‚ngulo onde comeÁa a borda interna do spot
+uniform float interna;	// cos do √¢ngulo onde come√ßa a borda interna do spot
 
 void main (void)
 {
-	// Calcula um vetor da superfÌcie ‡ luz
-	vec3 luz = normalize(gl_LightSource[0].position.xyz - sup); 
+	// Calcula um vetor da superf√≠cie √† luz
+	vec3 luz = normalize(gl_LightSource[0].position.xyz - sup);
 
-	// O vetor da superfÌcie ao observador È simplesmente o oposto de sup
-	// pois j· estamos em coordenadas de c‚mera: observador = (0,0,0)
+	// O vetor da superf√≠cie ao observador √© simplesmente o oposto de sup
+	// pois j√° estamos em coordenadas de c√¢mera: observador = (0,0,0)
 	vec3 obs = normalize(-sup);
-	
-	// Calcula vetor mÈdio
+
+	// Calcula vetor m√©dio
 	vec3 medio = normalize(luz+obs);
 
 	// Normaliza a normal interpolada
 	vec3 n = normalize (normal);
 
-	// Calcula ‚ngulo entre direÁ„o do spot e vetor da luz ‡ superfÌcie
+	// Calcula √¢ngulo entre dire√ß√£o do spot e vetor da luz √† superf√≠cie
 	float spot = max(dot(gl_LightSource[0].spotDirection, -luz),0.0);
 
-	// Calcula intensidade da luz considerando a variaÁ„o da borda interna ‡ externa	
+	// Calcula intensidade da luz considerando a varia√ß√£o da borda interna √† externa
 	// Se estiver fora do cone de luz, "borda" recebe 0.0
 	float borda = smoothstep(gl_LightSource[0].spotCosCutoff,interna,spot);
 
@@ -29,13 +29,13 @@ void main (void)
 
 	// Calcula componente difuso
 	vec4 difuso = gl_FrontLightProduct[0].diffuse * max(dot(n,luz), 0.0);
-		
+
 	// Calcula componente especular
-	vec4 especular = gl_FrontLightProduct[0].specular 
+	vec4 especular = gl_FrontLightProduct[0].specular
 		* pow(max(dot(n,medio),0.0),gl_FrontMaterial.shininess);
 
-	// Multiplica pela intensidade do spot e pela combinaÁ„o difuso+especular e adiciona
-	// ‡ contribuiÁ„o do componente ambiente do modelo de iluminaÁ„o para gerar a cor final
+	// Multiplica pela intensidade do spot e pela combina√ß√£o difuso+especular e adiciona
+	// √† contribui√ß√£o do componente ambiente do modelo de ilumina√ß√£o para gerar a cor final
 	gl_FragColor = gl_FrontLightModelProduct.sceneColor + gl_FrontLightProduct[0].ambient
 		+ spot * (difuso+especular);
 }

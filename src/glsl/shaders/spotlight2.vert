@@ -3,14 +3,14 @@ varying vec3 sup;
 
 void main(void)
 {
-	// Obtém a posição do vértice em coordenadas de câmera
+  // ObtÃªm a posiÃ§Ã£o do vÃ©rtice em coordenadas de cÃ¢mera
 	sup = vec3(gl_ModelViewMatrix * gl_Vertex);
 
-	// E a normal, também em coordenadas de câmera
+  // E a normal, tambÃ©m em coordenadas de cÃ¢mera
 	normal = gl_NormalMatrix * gl_Normal;
 
-	// Calcula posição do vértice
+	// Calcula posiÃ§Ã£o do vÃ©rtice
 	// (equivalente a gl_ModelViewProjectionMatrix * gl_Vertex)
-	gl_Position = ftransform(); 
+	gl_Position = ftransform();
 }
 

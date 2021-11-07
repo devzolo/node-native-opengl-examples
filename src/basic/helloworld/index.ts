@@ -66,8 +66,8 @@ async function main(): Promise<void> {
 
     if (benchmarkDisplay.elapsed() >= 1000 / 60) {
       benchmarkDisplay.start();
-      desenha();
     }
+    desenha();
   });
 
   GLUT.reshapeFunc(redimensiona);
