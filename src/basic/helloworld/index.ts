@@ -1,6 +1,6 @@
-import GL from 'native-gl';
-import GLU from 'native-glu';
-import GLUT from 'native-glut';
+import GL from '@devzolo/node-native-gl';
+import GLU from '@devzolo/node-native-glu';
+import GLUT from '@devzolo/node-native-glut';
 
 import { Benchmark } from '../../util';
 

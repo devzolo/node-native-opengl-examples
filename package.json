@@ -5,6 +5,16 @@
   "repository": "https://github.com/devzolo/nodejs-typescript-project-template.git",
   "author": "Raphael-ZoLo <zolotorevsky@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "dev": "tsnd -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules --no-notify src/basic",
+    "build": "tsc",
+    "test": "jest --coverage"
+  },
+  "dependencies": {
+    "@devzolo/node-native-gl": "https://github.com/devzolo/node-native-gl.git",
+    "@devzolo/node-native-glu": "https://github.com/devzolo/node-native-glu.git",
+    "@devzolo/node-native-glut": "https://github.com/devzolo/node-native-glut.git"
+  },
   "devDependencies": {
     "@types/jest": "^25.1.2",
     "@types/node": "^13.7.1",
@@ -15,21 +25,11 @@
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-prettier": "^3.1.2",
     "jest": "^25.1.0",
-    "nodemon": "^2.0.2",
     "prettier": "^1.19.1",
     "ts-jest": "^25.2.0",
     "ts-node": "^8.6.2",
+    "ts-node-dev": "^1.1.8",
+    "tsconfig-paths": "^3.11.0",
     "typescript": "^3.7.5"
-  },
-  "scripts": {
-    "dev": "nodemon",
-    "start": "ts-node src/glsl",
-    "build": "tsc",
-    "test": "jest --coverage"
-  },
-  "dependencies": {
-    "native-gl": "https://github.com/devzolo/node-native-gl.git",
-    "native-glu": "https://github.com/devzolo/node-native-glu.git",
-    "native-glut": "https://github.com/devzolo/node-native-glut.git"
   }
 }

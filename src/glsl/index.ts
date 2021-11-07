@@ -22,9 +22,9 @@
 // "OpenGL - Uma Abordagem Prática e Objetiva"
 //
 //*****************************************************
-import GL from 'native-gl';
-import GLUT from 'native-glut';
-import GLU from 'native-glu';
+import GL from '@devzolo/node-native-gl';
+import GLU from '@devzolo/node-native-glu';
+import GLUT from '@devzolo/node-native-glut';
 import fs from 'fs';
 import path from 'path';
 
