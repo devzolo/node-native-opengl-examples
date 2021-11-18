@@ -1,11 +1,18 @@
 import GL from '@devzolo/node-native-gl';
 import GLU from '@devzolo/node-native-glu';
 import GLUT from '@devzolo/node-native-glut';
+// import { NativeSound } from '@devzolo/node-native-sound';
 
-import { Benchmark } from '../../util';
+import { Benchmark } from '~/util';
 
 let rot = 0;
 let fps = 0;
+
+interface RGBColor {
+  r: number;
+  g: number;
+  b: number;
+}
 
 function redimensiona(width: number, height: number): void {
   console.log('redimensiona', 'width', width, 'height', height);
@@ -25,25 +32,32 @@ async function desenha(): Promise<void> {
   rot += 1;
   GL.rotatef(rot, 0.0, 1.0, 0.0); //rotaciona no eixo Y
 
-  GL.pointSize(5.0);
-  GL.begin(GL.TRIANGLES); //inicia o desenho de triangulos
-  {
-    GL.color3f(1.0, 0.0, 0.0); //seleciona a cor vermelha
-    GL.vertex2f(0.0, 1.0); //Cria o primeiro ponto
+  GL.begin(GL.TRIANGLES); //inicia a figura
+  GL.color3f(1.0, 0.0, 0.0); //seleciona a cor vermelha
+  GL.vertex3f(0.0, 1.0, 0.0); //ponto superior
+  GL.color3f(0.0, 1.0, 0.0); //seleciona a cor verde
+  GL.vertex3f(-1.0, -1.0, 0.0); //ponto inferior esquerdo
+  GL.color3f(0.0, 0.0, 1.0); //seleciona a cor azul
+  GL.vertex3f(1.0, -1.0, 0.0); //ponto inferior direito
+  GL.end(); //finaliza a figura
 
-    GL.color3f(0.0, 1.0, 0.0); //seleciona a cor verde
-    GL.vertex2f(-1.0, -1.0); //Cria o segundo ponto
-
-    GL.color3f(0.0, 0.0, 1.0); //seleciona a cor azul
-    GL.vertex2f(1.0, -1.0); //Cria o terceiro ponto
+  // desenhar um circulo
+  GL.begin(GL.TRIANGLE_FAN);
+  GL.color3f(1.0, 1.0, 1.0);
+  GL.vertex2f(0.0, 0.0);
+  for (let i = 0; i <= 360; i += 1) {
+    GL.vertex2f(Math.cos((i * Math.PI) / 180) * 0.5, Math.sin((i * Math.PI) / 180) * 0.5);
   }
-  GL.end(); //finaliza o desenho
+  GL.end();
 
   GLUT.swapBuffers(); //executa os comandos OpenGL
   fps++;
 }
 
 async function main(): Promise<void> {
+  // const sound = new NativeSound('teste.mp3');
+  // sound.getFFTData();
+
   const width = 800;
   const height = 600;
 
@@ -61,6 +75,7 @@ async function main(): Promise<void> {
     if (benchmarkFps.elapsed() >= 1000) {
       benchmarkFps.start();
       console.log('FPS = ', fps);
+      GLUT.setWindowTitle(`Teste OpenGL - FPS: ${fps}`);
       fps = 0;
     }
 
