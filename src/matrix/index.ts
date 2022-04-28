@@ -81,7 +81,7 @@ async function Initialize() {
 }
 
 function glSetChar(ch) {
-  GL.callList(base + ch);
+  GL.callList(base + ch - 32);
 }
 
 function RenderScene() {
@@ -160,19 +160,25 @@ function ProcessLevel() {
           let f = random(5) - 2;
           brmap[x][40] = 1.0;
           nmap[x][40] = f;
-          map[x++][40] = 'A'.charCodeAt(0);
+          map[x++][40] = 'D'.charCodeAt(0);
           brmap[x][40] = 1.0;
           nmap[x][40] = f;
-          map[x++][40] = 'R'.charCodeAt(0);
+          map[x++][40] = 'E'.charCodeAt(0);
           brmap[x][40] = 1.0;
           nmap[x][40] = f;
-          map[x++][40] = 'R'.charCodeAt(0);
+          map[x++][40] = 'V'.charCodeAt(0);
+          brmap[x][40] = 1.0;
+          nmap[x][40] = f;
+          map[x++][40] = 'Z'.charCodeAt(0);
           brmap[x][40] = 1.0;
           nmap[x][40] = f;
           map[x++][40] = 'O'.charCodeAt(0);
           brmap[x][40] = 1.0;
           nmap[x][40] = f;
-          map[x][40] = 'W'.charCodeAt(0);
+          map[x++][40] = 'L'.charCodeAt(0);
+          brmap[x][40] = 1.0;
+          nmap[x][40] = f;
+          map[x][40] = 'O'.charCodeAt(0);
         } else {
           map[x][40] = random(256);
           brmap[x][40] = 0.35 + random(51) / 100.0;
@@ -238,11 +244,11 @@ async function main() {
       fps = 0;
     }
 
-    if (benchmarkDisplay.elapsed() >= 1000 / 144) {
+    if (benchmarkDisplay.elapsed() >= 1000 / 60) {
       benchmarkDisplay.start();
       OnDrawCene();
+      fps++;
     }
-    fps++;
   });
 }
 

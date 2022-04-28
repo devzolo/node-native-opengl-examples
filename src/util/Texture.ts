@@ -3,6 +3,7 @@ import GL from '@devzolo/node-native-gl';
 import Jpeg from 'jpeg-js';
 import PNG from 'pngjs';
 import Bmp from 'bmp-js';
+import _ from 'lodash';
 
 export class Texture {
   public id = 0;
@@ -49,14 +50,14 @@ export class Texture {
       formatAsRGBA: true,
     });
 
-    let result = new Uint8Array(jpeg.data.length);
-    for (let i = 0; i < jpeg.data.length; i += 4) {
-      result[i + 0] = jpeg.data[i + 3];
-      result[i + 1] = jpeg.data[i + 2];
-      result[i + 2] = jpeg.data[i + 1];
-      result[i + 3] = jpeg.data[i + 0];
+    //FLIP Y AXIS
+    let flipped = new Uint8Array(jpeg.data.length);
+    let lineSize = jpeg.width * 4;
+    for (let i = 0; i < jpeg.height; i++) {
+      let offset = i * lineSize;
+      let offsetFlipped = (jpeg.height - i - 1) * lineSize;
+      flipped.set(jpeg.data.subarray(offset, offset + lineSize), offsetFlipped);
     }
-    result = result.reverse();
 
     texture.id = GL.genTextures(1)[0];
     GL.bindTexture(GL.TEXTURE_2D, texture?.id ?? 0);
@@ -69,10 +70,14 @@ export class Texture {
       0,
       GL.RGBA,
       GL.UNSIGNED_BYTE,
-      Buffer.from(result) as any,
+      flipped as any,
     );
+
     GL.texParameterf(GL.TEXTURE_2D, GL.TEXTURE_MIN_FILTER, GL.NEAREST);
     GL.texParameterf(GL.TEXTURE_2D, GL.TEXTURE_MAG_FILTER, GL.LINEAR);
+    GL.texParameterf(GL.TEXTURE_2D, GL.TEXTURE_WRAP_S, GL.CLAMP_TO_EDGE);
+    GL.texParameterf(GL.TEXTURE_2D, GL.TEXTURE_WRAP_T, GL.CLAMP_TO_EDGE);
+    GL.bindTexture(GL.TEXTURE_2D, 0);
     return texture;
   }
 
