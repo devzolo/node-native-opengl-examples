@@ -178,7 +178,7 @@ export function drawNode(x: number, y: number, altura: number) {
 let drawBackgroundList!: number;
 
 export function drawBackground() {
-  const NUM_LINES = 200.0;
+  const NUM_LINES = 200000.0;
   const NUM_LINESDIV2 = NUM_LINES / 2;
 
   if (!drawBackgroundList) {
