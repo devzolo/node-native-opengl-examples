@@ -1,0 +1,57 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "dist",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development concurrently \"yarn watch-compile\" \"yarn watch-dev\"",
+    "watch-compile": "swc src -w --out-dir dist",
+    "watch-dev": "nodemon --watch \"dist/**/*\" --watch \".env\"  --exec \"node -r @swc-node/register  -r @swc-node/sourcemap-support -r tsconfig-paths/register src/index.ts\"",
+    "build": "swc src -d dist",
+    "start": "node ./dist/index.js",
+    "lint": "eslint ./src --ext .js,.jsx,.ts,.tsx",
+    "lint:fix": "eslint ./src --ext .js,.jsx,.ts,.tsx --fix",
+    "test": "jest",
+    "clean": "rimraf dist",
+    "upgrade-all": "yarn-upgrade-all"
+  },
+  "yarn-upgrade-all": {
+    "ignore": [
+      "config",
+      "tsconfig",
+      "cigam",
+      "play-template",
+      "magicsoftware"
+    ]
+  },
+  "dependencies": {
+    "@swc-node/sourcemap-support": "^0.2.0",
+    "@devzolo/node-native-browser": "link:../node-native-browser",
+    "@devzolo/node-native-gl": "link:../node-native-gl",
+    "@devzolo/node-native-glm": "link:../node-native-glm",
+    "@devzolo/node-native-glu": "link:../node-native-glu",
+    "@devzolo/node-native-glut": "link:../node-native-glut",
+    "@devzolo/node-native-sound": "link:../node-native-sound",
+    "bmp-js": "^0.1.0",
+    "jpeg-js": "^0.4.3",
+    "pngjs": "^6.0.0"
+  },
+  "devDependencies": {
+    "@swc-node/register": "^1.5.1",
+    "@swc/cli": "^0.1.57",
+    "@swc/core": "^1.2.173",
+    "@swc/jest": "^0.2.20",
+    "@types/jest": "^27.4.1",
+    "@types/node": "^17.0.30",
+    "jest": "^28.0.3",
+    "nodemon": "^2.0.16",
+    "rimraf": "^3.0.2",
+    "tsconfig": "*",
+    "tsconfig-paths": "^3.14.1",
+    "typescript": "^4.6.4"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
