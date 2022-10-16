@@ -17,7 +17,7 @@
   "scripts": {
     "build": "turbo run build --no-daemon",
     "upgrade-all": "turbo run upgrade-all",
-    "dev": "turbo run dev --parallel --no-daemon",
+    "dev-nao-executar": "turbo run dev --parallel --no-daemon",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "test": "turbo run test --parallel",

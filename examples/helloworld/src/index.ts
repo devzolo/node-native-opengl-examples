@@ -15,7 +15,7 @@ function redimensiona(width: number, height: number): void {
   GL.matrixMode(GL.MODELVIEW); //seleciona a matriz de visualização
 }
 
-async function desenha(): Promise<void> {
+function desenha() {
   GL.clear(GL.COLOR_BUFFER_BIT); //limpa a tela
 
   GL.loadIdentity(); //reseta a matriz atual
