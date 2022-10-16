@@ -72,5 +72,5 @@
   ],
   "include": [
       "src/**/*"
-, "examples/browser/browser"  ]
+, "examples/browser/browser", "examples/luzspot"  ]
 }
