@@ -3,6 +3,7 @@
   "display": "Node 16",
   "extends": "./base.json",
   "compilerOptions": {
+    "types": ["node"],
     "target": "es2021",
     "lib": [
       "es2021"
