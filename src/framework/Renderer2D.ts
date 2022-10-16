@@ -2,7 +2,7 @@ import gl from "@devzolo/node-native-gl";
 import glut from "@devzolo/node-native-glut";
 import glm from "@devzolo/node-native-glm";
 
-import { Camera } from "../browser/camera";
+import { Camera } from "../../examples/browser/browser/camera";
 
 
 

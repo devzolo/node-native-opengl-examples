@@ -1,9 +1,9 @@
 import GL from '@devzolo/node-native-gl';
 import GLU from '@devzolo/node-native-glu';
 import GLUT from '@devzolo/node-native-glut';
-import { Benchmark } from '~/util';
+import { Benchmark, Texture } from 'utils';
 import path from 'path';
-import { Texture } from '~/util/Texture';
+
 
 const WINDOW_WIDTH = 800;
 const WINDOW_HEIGHT = 600;
@@ -80,7 +80,7 @@ async function Initialize() {
   LoadLevel();
 }
 
-function glSetChar(ch) {
+function glSetChar(ch: number) {
   GL.callList(base + ch - 32);
 }
 

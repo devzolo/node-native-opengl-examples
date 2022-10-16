@@ -3,10 +3,9 @@ import GLU from '@devzolo/node-native-glu';
 import GLUT from '@devzolo/node-native-glut';
 import GLM from '@devzolo/node-native-glm';
 import { NativeBrowser, NativeBrowserUpdate, eKeyEventType } from '@devzolo/node-native-browser';
-import { Benchmark } from '~/util';
 import { watchFile } from 'fs';
 import { Camera, CameraMovement } from './camera';
-import { compilaShaders } from './utils';
+import { compilaShaders, Benchmark } from 'utils';
 
 const camera = new Camera(new GLM.vec3(0, 0, -3));
 let shader: number;
@@ -201,8 +200,8 @@ async function initialize() {
 }
 
 function onReSize(width: number, height: number) {
-  globalThis.width = width;
-  globalThis.height = height;
+  (globalThis as any).width = width;
+  (globalThis as any).height = height;
   GL.viewport(0, 0, width, height); //seleciona a area da janela
   GL.matrixMode(GL.PROJECTION); //seleciona a matriz de projeção
   GL.loadIdentity(); //reseta a matriz de projeção
@@ -212,7 +211,7 @@ function onReSize(width: number, height: number) {
 
 let rot = 0;
 
-function drawnQuad(textureid) {
+function drawnQuad(textureid: number) {
   //GL.useProgram(prog);
   //GL.uniformMatrix4fv(mvpLoc, 1, GL.FALSE, Float32Array.from([-1, 1, -1, 1]));
   // GL.enableVertexAttribArray(posLoc);
@@ -258,7 +257,7 @@ function onDrawCene() {
   GL.useProgram(shader);
   const projection = GLM.perspective(
     GLM.radians(camera.zoom),
-    (globalThis.width ?? 800) / (globalThis.height ?? 600),
+    ((globalThis as any).width ?? 800) / ((globalThis as any).height ?? 600),
     0.1,
     1000.0,
   );
