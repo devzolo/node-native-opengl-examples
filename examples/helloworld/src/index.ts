@@ -6,43 +6,34 @@ import { Benchmark } from 'utils';
 let rot = 0;
 let fps = 0;
 
-function redimensiona(width: number, height: number): void {
-  console.log('redimensiona', 'width', width, 'height', height);
-  GL.viewport(0, 0, width, height); //seleciona a area da janela
-  GL.matrixMode(GL.PROJECTION); //seleciona a matriz de projeção
-  GL.loadIdentity(); //reseta a matriz de projeção
-  GLU.perspective(45.0, width / height, 0.1, 100.0); //seleciona a perspectiva
-  GL.matrixMode(GL.MODELVIEW); //seleciona a matriz de visualização
+function onReshape(width: number, height: number): void {
+  console.log('onReshape', 'width', width, 'height', height); //print the width and height to the console
+  GL.viewport(0, 0, width, height); //select the area of the window
+  GL.matrixMode(GL.PROJECTION); //select the projection matrix
+  GL.loadIdentity(); //reset the projection matrix
+  GLU.perspective(45.0, width / height, 0.1, 100.0); //select the perspective
+  GL.matrixMode(GL.MODELVIEW); //select the modelview matrix
 }
 
-function desenha() {
-  GL.clear(GL.COLOR_BUFFER_BIT); //limpa a tela
+function onDisplay() {
+  GL.clear(GL.COLOR_BUFFER_BIT | GL.DEPTH_BUFFER_BIT); //clear the screen
 
-  GL.loadIdentity(); //reseta a matriz atual
-  GL.translatef(0.0, 0.0, -6.0); //envia para mais para tras
+  GL.loadIdentity(); //reset the current matrix
+  GL.translatef(0.0, 0.0, -6.0); //move 6 units into the screen
 
   rot += 1;
-  GL.rotatef(rot, 0.0, 1.0, 0.0); //rotaciona no eixo Y
+  GL.rotatef(rot, 0.0, 1.0, 0.0); //rotate the triangle on the Y axis
 
-  GL.begin(GL.TRIANGLES); //inicia a figura
-  GL.color3f(1.0, 0.0, 0.0); //seleciona a cor vermelha
-  GL.vertex3f(0.0, 1.0, 0.0); //ponto superior
-  GL.color3f(0.0, 1.0, 0.0); //seleciona a cor verde
-  GL.vertex3f(-1.0, -1.0, 0.0); //ponto inferior esquerdo
-  GL.color3f(0.0, 0.0, 1.0); //seleciona a cor azul
-  GL.vertex3f(1.0, -1.0, 0.0); //ponto inferior direito
-  GL.end(); //finaliza a figura
+  GL.begin(GL.TRIANGLES); //start drawing a triangle
+  GL.color3f(1.0, 0.0, 0.0); //set the color to red
+  GL.vertex3f(0.0, 1.0, 0.0); //top point of the triangle
+  GL.color3f(0.0, 1.0, 0.0); //set the color to green
+  GL.vertex3f(-1.0, -1.0, 0.0); //bottom left point of the triangle
+  GL.color3f(0.0, 0.0, 1.0); //set the color to blue
+  GL.vertex3f(1.0, -1.0, 0.0); //bottom right point of the triangle
+  GL.end(); //end drawing of the triangle
 
-  // desenhar um circulo
-  GL.begin(GL.TRIANGLE_FAN);
-  GL.color3f(1.0, 1.0, 1.0);
-  GL.vertex2f(0.0, 0.0);
-  for (let i = 0; i <= 360; i += 1) {
-    GL.vertex2f(Math.cos((i * Math.PI) / 180) * 0.5, Math.sin((i * Math.PI) / 180) * 0.5);
-  }
-  GL.end();
-
-  GLUT.swapBuffers(); //executa os comandos OpenGL
+  GLUT.swapBuffers(); //swap the buffers
   fps++;
 }
 
@@ -54,29 +45,32 @@ async function main() {
   GLUT.initDisplayMode(GLUT.DOUBLE | GLUT.RGB); //modo de display
   GLUT.initWindowSize(width, height); //seleciona o tamanho da janela
   GLUT.initWindowPosition((GLUT.get(GLUT.SCREEN_WIDTH) - width) / 2, (GLUT.get(GLUT.SCREEN_HEIGHT) - height) / 2);
-  GLUT.createWindow('Teste OpenGL'); //cria a janela com o nome "Teste"
-  GLUT.displayFunc(desenha); //seleciona a função de desenho
+  GLUT.createWindow('OpenGL Test'); //cria a janela com o nome "Teste"
+  GLUT.displayFunc(onDisplay); //seleciona a função de desenho
+
+  GL.enable(GL.DEPTH_TEST); //enable depth testing
+  GL.depthFunc(GL.LESS); //depth testing interprets a smaller value as "closer"
 
   const benchmarkFps = new Benchmark();
   const benchmarkDisplay = new Benchmark();
 
   GLUT.idleFunc(() => {
-    if (benchmarkFps.elapsed() >= 1000) {
+    if (benchmarkFps.elapsed() >= 1000) { // 1 second
       benchmarkFps.start();
       console.log('FPS = ', fps);
-      GLUT.setWindowTitle(`Teste OpenGL - FPS: ${fps}`);
+      GLUT.setWindowTitle(`OpenGL Test - FPS: ${fps}`);
       fps = 0;
     }
 
-    if (benchmarkDisplay.elapsed() >= 1000 / 60) {
+    if (benchmarkDisplay.elapsed() >= 1000 / 60) { // 60 fps
       benchmarkDisplay.start();
+      onDisplay(); //draw the scene
     }
-    desenha();
   });
 
-  GLUT.reshapeFunc(redimensiona);
-  GL.clearColor(0.0, 0.0, 0.0, 0.0);
-  GLUT.mainLoop(); //inicia o loop na janela
+  GLUT.reshapeFunc(onReshape); //select the reshape function
+  GL.clearColor(0.0, 0.0, 0.0, 0.0); //set the clear color to black
+  GLUT.mainLoop(); //enter the GLUT event processing loop
 }
 
 main();
