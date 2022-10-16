@@ -47,7 +47,7 @@ function BuildFont() {
 }
 
 async function LoadGLTextures() {
-  texture = await Texture.load(path.join(__dirname, 'Font.jpg')).then(texture => texture.id);
+  texture = await Texture.load(path.join('assets', 'Font.jpg')).then(texture => texture.id);
   console.log('LoadGLTextures', texture);
 }
 
