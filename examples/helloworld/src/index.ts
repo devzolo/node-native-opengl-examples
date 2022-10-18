@@ -24,6 +24,7 @@ function onDisplay() {
   rot += 1;
   GL.rotatef(rot, 0.0, 1.0, 0.0); //rotate the triangle on the Y axis
 
+
   GL.begin(GL.TRIANGLES); //start drawing a triangle
   GL.color3f(1.0, 0.0, 0.0); //set the color to red
   GL.vertex3f(0.0, 1.0, 0.0); //top point of the triangle
@@ -32,6 +33,7 @@ function onDisplay() {
   GL.color3f(0.0, 0.0, 1.0); //set the color to blue
   GL.vertex3f(1.0, -1.0, 0.0); //bottom right point of the triangle
   GL.end(); //end drawing of the triangle
+
 
   GLUT.swapBuffers(); //swap the buffers
   fps++;

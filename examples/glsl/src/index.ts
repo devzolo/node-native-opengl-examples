@@ -230,7 +230,9 @@ function teclado(tecla: any): void {
       system('exit');
       break;
     default:
-      const teclaChar = String.fromCharCode(tecla);
+      const teclaChar = tecla;
+
+      console.log(teclaChar)
       switch (teclaChar) {
         case "'":
           usashaders = !usashaders;
