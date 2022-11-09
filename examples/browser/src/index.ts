@@ -166,22 +166,22 @@ async function initialize() {
   const data: any = [
     // { url: 'https://www.youtube.com/watch?v=XbGs_qK2PQA' },
     { url: `${__dirname}/index.html` },
-    { url: `https://www.figma.com/` },
-    { url: 'https://github.com/devzolo' },
-    { url: 'https://www.google.com' },
-    { url: 'https://www.tumblr.com' },
-    { url: 'https://www.pinterest.com' },
-    { url: 'https://www.reddit.com' },
-    { url: 'https://www.amazon.com' },
-    { url: 'https://www.facebook.com' },
-    { url: 'https://www.instagram.com' },
-    { url: 'https://www.twitter.com' },
-    { url: 'https://www.linkedin.com' },
-    { url: 'https://www.quora.com' },
-    { url: 'https://www.flickr.com' },
-    { url: 'https://www.imdb.com' },
-    { url: 'https://www.wikipedia.org' },
-    { url: 'https://www.ebay.com' },
+    // { url: `https://www.figma.com/` },
+    // { url: 'https://github.com/devzolo' },
+    // { url: 'https://www.google.com' },
+    // { url: 'https://www.tumblr.com' },
+    // { url: 'https://www.pinterest.com' },
+    // { url: 'https://www.reddit.com' },
+    // { url: 'https://www.amazon.com' },
+    // { url: 'https://www.facebook.com' },
+    // { url: 'https://www.instagram.com' },
+    // { url: 'https://www.twitter.com' },
+    // { url: 'https://www.linkedin.com' },
+    // { url: 'https://www.quora.com' },
+    // { url: 'https://www.flickr.com' },
+    // { url: 'https://www.imdb.com' },
+    // { url: 'https://www.wikipedia.org' },
+    // { url: 'https://www.ebay.com' },
   ];
 
 
@@ -532,11 +532,11 @@ async function main() {
 
     if (benchmarkDisplay.elapsed() >= 1000 / 60) {
       benchmarkDisplay.start();
+      NativeBrowserUpdate();
+      onDrawCene();
+      updateCamera();
+      fps++;
     }
-    NativeBrowserUpdate();
-    onDrawCene();
-    updateCamera();
-    fps++;
   });
 
   await initialize();

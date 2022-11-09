@@ -15,6 +15,8 @@ function onReshape(width: number, height: number): void {
   GL.matrixMode(GL.MODELVIEW); //select the modelview matrix
 }
 
+let list = 0;
+
 function onDisplay() {
   GL.clear(GL.COLOR_BUFFER_BIT | GL.DEPTH_BUFFER_BIT); //clear the screen
 
@@ -33,7 +35,6 @@ function onDisplay() {
   GL.color3f(0.0, 0.0, 1.0); //set the color to blue
   GL.vertex3f(1.0, -1.0, 0.0); //bottom right point of the triangle
   GL.end(); //end drawing of the triangle
-
 
   GLUT.swapBuffers(); //swap the buffers
   fps++;
