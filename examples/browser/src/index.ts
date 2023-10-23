@@ -165,9 +165,10 @@ async function initialize() {
   const width = 800;
   const height = 800;
   const data = [
+    { url: 'https://github.com/rms-diego' },
+    { url: 'https://github.com/rafz' },
     { url: 'https://github.com/devzolo' },
     { url: `${__dirname}/index.html` },
-    { url: 'https://www.youtube.com/watch?v=XbGs_qK2PQA' },
   ];
 
   for (const item of data) {
