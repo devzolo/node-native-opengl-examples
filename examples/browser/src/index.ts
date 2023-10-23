@@ -158,33 +158,17 @@ async function initialize() {
   // GL.blendFunc(GL.SRC_COLOR, GL.ONE_MINUS_SRC_ALPHA);
   // GL.alphaFunc(GL.GREATER, 0.1);
 
-  const width = 400;
-  const height = 400;
   // Texture.load(path.join(__dirname, '..', 'src', 'assets', 'textures', 'grille.png')).then(texture => {
   //   texture2 = texture.id;
   // });
-  const data: any = [
-    // { url: 'https://www.youtube.com/watch?v=XbGs_qK2PQA' },
+
+  const width = 800;
+  const height = 800;
+  const data = [
+    { url: 'https://github.com/devzolo' },
     { url: `${__dirname}/index.html` },
-    // { url: `https://www.figma.com/` },
-    // { url: 'https://github.com/devzolo' },
-    // { url: 'https://www.google.com' },
-    // { url: 'https://www.tumblr.com' },
-    // { url: 'https://www.pinterest.com' },
-    // { url: 'https://www.reddit.com' },
-    // { url: 'https://www.amazon.com' },
-    // { url: 'https://www.facebook.com' },
-    // { url: 'https://www.instagram.com' },
-    // { url: 'https://www.twitter.com' },
-    // { url: 'https://www.linkedin.com' },
-    // { url: 'https://www.quora.com' },
-    // { url: 'https://www.flickr.com' },
-    // { url: 'https://www.imdb.com' },
-    // { url: 'https://www.wikipedia.org' },
-    // { url: 'https://www.ebay.com' },
+    { url: 'https://www.youtube.com/watch?v=XbGs_qK2PQA' },
   ];
-
-
 
   for (const item of data) {
     const browser = new NativeBrowser({
@@ -274,7 +258,7 @@ function onDrawCene() {
     GL.FLOAT, // type
     false, // normalized?
     0, // stride
-    Float32Array.from([]),
+    // Float32Array.from([]),
   );
   for (const browser in browsers) {
     GL.bindTexture(GL.TEXTURE_2D, browsers[browser].getTextureId());
