@@ -9,7 +9,7 @@ export class Shader {
     return fs.readFile(filePath, 'utf8');
   }
 
-  displayInfoLog(shader: GLuint): void {
+  displayInfoLog(shader: number): void {
     // Obtém tamanho do infolog
     const [tamanho] = GL.getShaderiv(shader, GL.INFO_LOG_LENGTH);
 
@@ -21,8 +21,8 @@ export class Shader {
   }
 
   async load(vertexPath: string, fragmentPath: string, geometryPath: string = "") {
-    const v: GLuint = GL.createShader(GL.VERTEX_SHADER);
-    const f: GLuint = GL.createShader(GL.FRAGMENT_SHADER);
+    const v: number = GL.createShader(GL.VERTEX_SHADER);
+    const f: number = GL.createShader(GL.FRAGMENT_SHADER);
 
     const vs: string = await this.loadFile(vertexPath);
     const fs: string = await this.loadFile(fragmentPath);
@@ -55,7 +55,7 @@ export class Shader {
     }
 
     // Cria o programa GLSL
-    const prog: GLuint = GL.createProgram();
+    const prog: number = GL.createProgram();
     // E associa os shaders a ele
     GL.attachShader(prog, f);
     GL.attachShader(prog, v);

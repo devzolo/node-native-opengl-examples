@@ -64,8 +64,10 @@ function defineIluminacao() {
   }
 }
 
+let chaoList = 0;
+
 function desenhaChao() {
-  const tam = 80;
+  const tam = 1000;
   const D = 4;
   let flagx = false;
   let flagz = false;
@@ -122,11 +124,18 @@ function onDisplay() {
   GL.pushMatrix();
   {
     GL.translatef(0.0, 7.5, 0.0);
-    GLUT.solidTeapot(10);
+    // GLUT.solidTeapot(10);
+    GLUT.wireTeapot(10);
   }
   GL.popMatrix();
 
-  desenhaChao();
+  if (chaoList === 0) {
+    chaoList = GL.genLists(1);
+    GL.newList(chaoList, GL.COMPILE);
+    desenhaChao();
+    GL.endList();
+  }
+  GL.callList(chaoList);
 
   GLUT.swapBuffers();
 }

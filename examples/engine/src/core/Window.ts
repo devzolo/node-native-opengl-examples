@@ -1,5 +1,5 @@
 import GLUT from '@devzolo/node-native-glut';
-import { Benchmark } from '.';
+import { Benchmark } from 'utils';
 
 export class Window {
 

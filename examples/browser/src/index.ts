@@ -165,7 +165,7 @@ async function initialize() {
   const width = 800;
   const height = 800;
   const data = [
-    { url: 'https://github.com/rms-diego' },
+    { url: 'https://www.youtube.com/watch?v=sfFQrhajs6o' },
     { url: 'https://github.com/rafz' },
     { url: 'https://github.com/devzolo' },
     { url: `${__dirname}/index.html` },
@@ -180,6 +180,7 @@ async function initialize() {
         browser.loadURL(item.url);
       },
     });
+
     browsers[item.url] = browser;
   }
 }
