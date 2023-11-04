@@ -15,14 +15,10 @@
     "examples/*"
   ],
   "scripts": {
-    "build": "turbo run build --no-daemon",
-    "upgrade-all": "turbo run upgrade-all",
-    "dev-nao-executar": "turbo run dev --parallel --no-daemon",
-    "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "test": "turbo run test --parallel",
-    "build1": "(node -e \"if (! require('fs').existsSync('./bin/helpers')){process.exit(1)} \" || npm run setup-helpers) && npm run final-build-step",
-    "build2": "node -e \"require('dotenv/config'); if (process.env.NODE_ENV === 'development'){process.exit(1)} \" || yarn build"
+    "build": "nx run-many -t build",
+    "clean": "nx run-many -t clean",
+    "lint": "nx run-many -t lint",
+    "test": "nx run-many -t test"
   },
   "dependencies": {
     "@devzolo/node-native-browser": "link:../node-native-browser",
@@ -33,6 +29,8 @@
     "@devzolo/node-native-sound": "link:../node-native-sound"
   },
   "devDependencies": {
+    "eslint": "^8.53.0",
+    "nx": "17.0.3",
     "prettier": "^2.7.1",
     "turbo": "^1.5.6",
     "yarn-upgrade-all": "^0.7.1"
