@@ -1,5 +1,5 @@
 import GL from '@devzolo/node-native-gl';
-import { setColorEx } from './utils';
+import { setColorEx } from './utils.ts';
 
 export function drawCube(x: number, y: number, z: number) {
   GL.translatef(x, y, z);

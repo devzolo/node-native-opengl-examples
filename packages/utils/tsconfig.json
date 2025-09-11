@@ -17,6 +17,7 @@
     "emitDecoratorMetadata": true,
     "moduleResolution": "Node",
     "skipLibCheck": true,
+    "allowImportingTsExtensions": true,
     "outDir": "dist",
     "baseUrl": "./",
     "paths": {

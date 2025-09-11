@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "main": "dist",
-  "author": "Raphael-ZoLo <zolotorevsky@gmail.com>",
+  "author": "devzolo <contact@devzolo.com>",
   "license": "MIT",
   "repository": "https://github.com/devzolo/node-native-opengl-examples",
   "publishConfig": {
@@ -29,11 +29,8 @@
     "@devzolo/node-native-sound": "link:../node-native-sound"
   },
   "devDependencies": {
-    "eslint": "^8.53.0",
-    "nx": "17.0.3",
-    "prettier": "^2.7.1",
-    "turbo": "^1.5.6",
-    "yarn-upgrade-all": "^0.7.1"
+    "@biomejs/biome": "^2.2.2",
+    "nx": "21.4.1"
   },
   "engines": {
     "npm": ">=7.0.0",

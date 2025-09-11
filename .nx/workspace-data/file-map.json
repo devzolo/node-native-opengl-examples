@@ -1,0 +1,637 @@
+{
+  "version": "6.0",
+  "nxVersion": "21.4.1",
+  "pathMappings": {
+    "~/*": [
+      "./src/*"
+    ]
+  },
+  "nxJsonPlugins": [],
+  "fileMap": {
+    "nonProjectFiles": [
+      {
+        "file": "LICENSE",
+        "hash": "17158450605518658011"
+      },
+      {
+        "file": ".editorconfig",
+        "hash": "2264447639239737204"
+      },
+      {
+        "file": "pnpm-workspace.yaml",
+        "hash": "7508064344148135374"
+      },
+      {
+        "file": ".npmignore",
+        "hash": "1631583195237904886"
+      },
+      {
+        "file": "tsconfig.json",
+        "hash": "14380075323809132"
+      },
+      {
+        "file": ".npmrc",
+        "hash": "1277535728928659133"
+      },
+      {
+        "file": "README.md",
+        "hash": "2249138394107974693"
+      },
+      {
+        "file": "nx.json",
+        "hash": "14478930514730972144"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "12169028295704264658"
+      },
+      {
+        "file": ".vscode/launch.json",
+        "hash": "9380006749163756120"
+      },
+      {
+        "file": "package.json",
+        "hash": "385284961127982064"
+      },
+      {
+        "file": "biome.json",
+        "hash": "8020027917291404154"
+      },
+      {
+        "file": "pnpm-lock.yaml",
+        "hash": "9302347217419214401"
+      }
+    ],
+    "projectFileMap": {
+      "tsconfig": [
+        {
+          "file": "packages/tsconfig/README.md",
+          "hash": "8862960248471759935"
+        },
+        {
+          "file": "packages/tsconfig/base.json",
+          "hash": "3963599648396339102"
+        },
+        {
+          "file": "packages/tsconfig/nextjs.json",
+          "hash": "13995889848228186070"
+        },
+        {
+          "file": "packages/tsconfig/nodejs.json",
+          "hash": "10987110447193385678"
+        },
+        {
+          "file": "packages/tsconfig/package.json",
+          "hash": "10648378721261636481"
+        },
+        {
+          "file": "packages/tsconfig/react-library.json",
+          "hash": "11347382627036639701"
+        }
+      ],
+      "utils": [
+        {
+          "file": "packages/utils/package.json",
+          "hash": "10564560113976277366",
+          "deps": [
+            "npm:@types/bmp-js",
+            "npm:@types/node",
+            "npm:@types/pngjs@6.0.5",
+            "npm:rimraf",
+            "tsconfig",
+            "npm:typescript",
+            "npm:bmp-js",
+            "npm:cross-env",
+            "npm:jpeg-js",
+            "npm:pngjs@7.0.0"
+          ]
+        },
+        {
+          "file": "packages/utils/src/Benchmark.ts",
+          "hash": "3641915307934632945"
+        },
+        {
+          "file": "packages/utils/src/Camera.ts",
+          "hash": "888788740654573606"
+        },
+        {
+          "file": "packages/utils/src/Texture.ts",
+          "hash": "6517005619768117040"
+        },
+        {
+          "file": "packages/utils/src/index.ts",
+          "hash": "4987273802361512714"
+        },
+        {
+          "file": "packages/utils/tsconfig.json",
+          "hash": "9040431185354939109"
+        }
+      ],
+      "texture": [
+        {
+          "file": "examples/texture/assets/textures/bloco.jpg",
+          "hash": "8472674809983979092"
+        },
+        {
+          "file": "examples/texture/assets/textures/font.bmp",
+          "hash": "16845052545887481324"
+        },
+        {
+          "file": "examples/texture/assets/textures/grille.png",
+          "hash": "8160053047608504865"
+        },
+        {
+          "file": "examples/texture/assets/textures/mta.ico",
+          "hash": "3939055024163594598"
+        },
+        {
+          "file": "examples/texture/assets/textures/star.jpg",
+          "hash": "15580988260485809907"
+        },
+        {
+          "file": "examples/texture/package.json",
+          "hash": "6051102209637987563",
+          "deps": [
+            "npm:@types/node",
+            "npm:rimraf",
+            "tsconfig",
+            "npm:typescript",
+            "npm:cross-env",
+            "utils"
+          ]
+        },
+        {
+          "file": "examples/texture/src/index.d.ts",
+          "hash": "2674241503376658580"
+        },
+        {
+          "file": "examples/texture/src/index.d.ts.map",
+          "hash": "3652834406346819316"
+        },
+        {
+          "file": "examples/texture/src/index.ts",
+          "hash": "7830977751318926494"
+        },
+        {
+          "file": "examples/texture/tsconfig.json",
+          "hash": "1633734052516752001"
+        }
+      ],
+      "luzspot": [
+        {
+          "file": "examples/luzspot/package.json",
+          "hash": "4542712796105500051",
+          "deps": [
+            "npm:@types/node@18.18.6",
+            "npm:rimraf@3.0.2",
+            "tsconfig",
+            "npm:tsconfig-paths",
+            "npm:typescript@4.9.5",
+            "npm:@swc-node/sourcemap-support",
+            "npm:cross-env",
+            "utils"
+          ]
+        },
+        {
+          "file": "examples/luzspot/src/index.d.ts",
+          "hash": "9181775532821678833"
+        },
+        {
+          "file": "examples/luzspot/src/index.d.ts.map",
+          "hash": "3652834406346819316"
+        },
+        {
+          "file": "examples/luzspot/src/index.ts",
+          "hash": "3714269979137583777"
+        },
+        {
+          "file": "examples/luzspot/tsconfig.json",
+          "hash": "1633734052516752001"
+        }
+      ],
+      "game": [
+        {
+          "file": "examples/game/__test__/.env.test",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "examples/game/__test__/index.test.d.ts",
+          "hash": "8008221774651122642"
+        },
+        {
+          "file": "examples/game/__test__/index.test.d.ts.map",
+          "hash": "18234959768962794353"
+        },
+        {
+          "file": "examples/game/__test__/index.test.ts",
+          "hash": "2035068259559592790"
+        },
+        {
+          "file": "examples/game/package.json",
+          "hash": "10011145125797223576",
+          "deps": [
+            "npm:@types/matter-js",
+            "npm:@types/node",
+            "npm:rimraf",
+            "tsconfig",
+            "npm:typescript",
+            "npm:cross-env",
+            "npm:matter-js",
+            "utils"
+          ]
+        },
+        {
+          "file": "examples/game/src/index.d.ts",
+          "hash": "2674241503376658580"
+        },
+        {
+          "file": "examples/game/src/index.d.ts.map",
+          "hash": "3652834406346819316"
+        },
+        {
+          "file": "examples/game/src/index.ts",
+          "hash": "9822665782754735193"
+        },
+        {
+          "file": "examples/game/tsconfig.json",
+          "hash": "4126588525348544813"
+        }
+      ],
+      "spectrum": [
+        {
+          "file": "examples/spectrum/assets/music/test.mp3",
+          "hash": "13491689286760136440"
+        },
+        {
+          "file": "examples/spectrum/package.json",
+          "hash": "13886335480856843800",
+          "deps": [
+            "npm:@types/node",
+            "npm:rimraf",
+            "tsconfig",
+            "npm:typescript",
+            "npm:cross-env",
+            "utils"
+          ]
+        },
+        {
+          "file": "examples/spectrum/src/elements.ts",
+          "hash": "1495501296777853348"
+        },
+        {
+          "file": "examples/spectrum/src/index.ts",
+          "hash": "5404524722856788667"
+        },
+        {
+          "file": "examples/spectrum/src/utils.ts",
+          "hash": "5842398096854806156"
+        },
+        {
+          "file": "examples/spectrum/tsconfig.json",
+          "hash": "11791070516796093628"
+        }
+      ],
+      "browser": [
+        {
+          "file": "examples/browser/package.json",
+          "hash": "17414505893904105408",
+          "deps": [
+            "npm:@types/node",
+            "npm:cross-env",
+            "npm:rimraf",
+            "tsconfig",
+            "npm:typescript",
+            "utils"
+          ]
+        },
+        {
+          "file": "examples/browser/src/camera.ts",
+          "hash": "12082094075927643768"
+        },
+        {
+          "file": "examples/browser/src/index.html",
+          "hash": "16758402553421843393"
+        },
+        {
+          "file": "examples/browser/src/index.ts",
+          "hash": "6609545631882654164"
+        },
+        {
+          "file": "examples/browser/src/index_old.html",
+          "hash": "17724517972321977011"
+        },
+        {
+          "file": "examples/browser/src/shaders/flatcolor.frag",
+          "hash": "5551193600701459892"
+        },
+        {
+          "file": "examples/browser/src/shaders/flatcolor.vert",
+          "hash": "3152712854982535281"
+        },
+        {
+          "file": "examples/browser/src/shaders/tex.frag",
+          "hash": "4695141120183886970"
+        },
+        {
+          "file": "examples/browser/src/shaders/tex.vert",
+          "hash": "10548682980315827007"
+        },
+        {
+          "file": "examples/browser/tsconfig.json",
+          "hash": "11791070516796093628"
+        }
+      ],
+      "matrix": [
+        {
+          "file": "examples/matrix/assets/Font.jpg",
+          "hash": "3052375268626257049"
+        },
+        {
+          "file": "examples/matrix/package.json",
+          "hash": "17808893033689900594",
+          "deps": [
+            "npm:@types/node",
+            "npm:rimraf",
+            "tsconfig",
+            "npm:typescript",
+            "npm:cross-env",
+            "utils"
+          ]
+        },
+        {
+          "file": "examples/matrix/src/index.d.ts",
+          "hash": "2674241503376658580"
+        },
+        {
+          "file": "examples/matrix/src/index.d.ts.map",
+          "hash": "3652834406346819316"
+        },
+        {
+          "file": "examples/matrix/src/index.ts",
+          "hash": "7235002285221207452"
+        },
+        {
+          "file": "examples/matrix/tsconfig.json",
+          "hash": "1633734052516752001"
+        }
+      ],
+      "glsl": [
+        {
+          "file": "examples/glsl/package.json",
+          "hash": "14218310027623452039",
+          "deps": [
+            "npm:@types/node",
+            "npm:rimraf",
+            "tsconfig",
+            "npm:typescript",
+            "npm:cross-env",
+            "utils"
+          ]
+        },
+        {
+          "file": "examples/glsl/src/index.d.ts",
+          "hash": "2674241503376658580"
+        },
+        {
+          "file": "examples/glsl/src/index.d.ts.map",
+          "hash": "3652834406346819316"
+        },
+        {
+          "file": "examples/glsl/src/index.ts",
+          "hash": "2573226226251404293"
+        },
+        {
+          "file": "examples/glsl/src/shaders/light.frag",
+          "hash": "7948705891904315457"
+        },
+        {
+          "file": "examples/glsl/src/shaders/light.vert",
+          "hash": "17018284198057588168"
+        },
+        {
+          "file": "examples/glsl/src/shaders/spotlight2.frag",
+          "hash": "16822739311720065930"
+        },
+        {
+          "file": "examples/glsl/src/shaders/spotlight2.vert",
+          "hash": "17771191593465921167"
+        },
+        {
+          "file": "examples/glsl/src/shaders/toon.frag",
+          "hash": "3904430631927095470"
+        },
+        {
+          "file": "examples/glsl/src/shaders/toon.vert",
+          "hash": "17342474586966424227"
+        },
+        {
+          "file": "examples/glsl/tsconfig.json",
+          "hash": "9737726039242320383"
+        }
+      ],
+      "engine": [
+        {
+          "file": "examples/engine/package.json",
+          "hash": "1841044820103896050",
+          "deps": [
+            "npm:@types/bmp-js",
+            "npm:@types/node",
+            "npm:@types/pngjs",
+            "npm:cross-env",
+            "npm:rimraf",
+            "tsconfig",
+            "npm:typescript",
+            "npm:bmp-js",
+            "npm:jpeg-js",
+            "npm:pngjs",
+            "utils"
+          ]
+        },
+        {
+          "file": "examples/engine/src/__test__/.env.test",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "examples/engine/src/__test__/index.test.ts",
+          "hash": "11556842467852858470"
+        },
+        {
+          "file": "examples/engine/src/assets/music/test.mp3",
+          "hash": "13491689286760136440"
+        },
+        {
+          "file": "examples/engine/src/assets/shaders/camera.frag",
+          "hash": "4786643788619009018"
+        },
+        {
+          "file": "examples/engine/src/assets/shaders/camera.vert",
+          "hash": "14711425432494013453"
+        },
+        {
+          "file": "examples/engine/src/assets/textures/bloco.jpg",
+          "hash": "8472674809983979092"
+        },
+        {
+          "file": "examples/engine/src/assets/textures/font.bmp",
+          "hash": "16845052545887481324"
+        },
+        {
+          "file": "examples/engine/src/assets/textures/grille.png",
+          "hash": "8160053047608504865"
+        },
+        {
+          "file": "examples/engine/src/assets/textures/mta.ico",
+          "hash": "3939055024163594598"
+        },
+        {
+          "file": "examples/engine/src/assets/textures/star.jpg",
+          "hash": "15580988260485809907"
+        },
+        {
+          "file": "examples/engine/src/core/Benchmark.ts",
+          "hash": "3641915307934632945"
+        },
+        {
+          "file": "examples/engine/src/core/Camera.ts",
+          "hash": "6269168813698373403"
+        },
+        {
+          "file": "examples/engine/src/core/Shader.ts",
+          "hash": "5663834951190645176"
+        },
+        {
+          "file": "examples/engine/src/core/Texture.ts",
+          "hash": "16810803135326834661"
+        },
+        {
+          "file": "examples/engine/src/core/Window.ts",
+          "hash": "10497401585673818442"
+        },
+        {
+          "file": "examples/engine/src/core/index.ts",
+          "hash": "10268378329883262922"
+        },
+        {
+          "file": "examples/engine/src/index.ts",
+          "hash": "13395137727160564661"
+        },
+        {
+          "file": "examples/engine/src/models/buffers/BoxVertexBufferData.ts",
+          "hash": "8385200305806513201"
+        },
+        {
+          "file": "examples/engine/src/react-teste/TsxTeste.tsx",
+          "hash": "2179503182630842753"
+        },
+        {
+          "file": "examples/engine/src/teste.ts",
+          "hash": "15633996412964682434"
+        },
+        {
+          "file": "examples/engine/src/util/index.ts",
+          "hash": "7130902097171610856"
+        },
+        {
+          "file": "examples/engine/tsconfig.json",
+          "hash": "11791070516796093628"
+        }
+      ],
+      "helloworld": [
+        {
+          "file": "examples/helloworld/__test__/.env.test",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "examples/helloworld/__test__/index.test.d.ts",
+          "hash": "8008221774651122642"
+        },
+        {
+          "file": "examples/helloworld/__test__/index.test.d.ts.map",
+          "hash": "18234959768962794353"
+        },
+        {
+          "file": "examples/helloworld/__test__/index.test.ts",
+          "hash": "2035068259559592790"
+        },
+        {
+          "file": "examples/helloworld/package.json",
+          "hash": "12684554356712646872",
+          "deps": [
+            "npm:@types/node",
+            "npm:rimraf",
+            "tsconfig",
+            "npm:typescript",
+            "npm:cross-env",
+            "utils"
+          ]
+        },
+        {
+          "file": "examples/helloworld/src/index.ts",
+          "hash": "16710462884681443081"
+        },
+        {
+          "file": "examples/helloworld/tsconfig.json",
+          "hash": "17359466960390793111"
+        }
+      ],
+      "gui": [
+        {
+          "file": "examples/gui/package.json",
+          "hash": "1710161533637997844",
+          "deps": [
+            "npm:@types/node",
+            "npm:rimraf",
+            "tsconfig",
+            "npm:typescript",
+            "npm:cross-env",
+            "utils"
+          ]
+        },
+        {
+          "file": "examples/gui/src/__test__/.env.test",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "examples/gui/src/__test__/index.test.d.ts",
+          "hash": "8008221774651122642"
+        },
+        {
+          "file": "examples/gui/src/__test__/index.test.d.ts.map",
+          "hash": "18234959768962794353"
+        },
+        {
+          "file": "examples/gui/src/__test__/index.test.ts",
+          "hash": "2035068259559592790"
+        },
+        {
+          "file": "examples/gui/src/framework/Renderer2D.d.ts",
+          "hash": "7189500150029435568"
+        },
+        {
+          "file": "examples/gui/src/framework/Renderer2D.d.ts.map",
+          "hash": "14514352261390767773"
+        },
+        {
+          "file": "examples/gui/src/framework/Renderer2D.ts",
+          "hash": "17782909909321552189"
+        },
+        {
+          "file": "examples/gui/src/index.d.ts",
+          "hash": "10424555015742552819"
+        },
+        {
+          "file": "examples/gui/src/index.d.ts.map",
+          "hash": "3652834406346819316"
+        },
+        {
+          "file": "examples/gui/src/index.ts",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "examples/gui/tsconfig.json",
+          "hash": "4126588525348544813"
+        }
+      ]
+    }
+  }
+}

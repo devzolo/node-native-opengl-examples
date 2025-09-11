@@ -2,10 +2,10 @@ import GL from "@devzolo/node-native-gl";
 import GLU from "@devzolo/node-native-glu";
 import GLUT from "@devzolo/node-native-glut";
 import glm from "@devzolo/node-native-glm";
-import { Shader, Texture, Window } from "./core";
-import { Camera, CameraMovement } from "./core";
+import { Shader, Texture, Window } from "./core/index.ts";
+import { Camera, CameraMovement } from "./core/index.ts";
 import path from "path";
-import gVertexBufferData from "./models/buffers/BoxVertexBufferData";
+import gVertexBufferData from "./models/buffers/BoxVertexBufferData.ts";
 import { eKeyEventType, NativeBrowser, NativeBrowserUpdate } from "@devzolo/node-native-browser"
 
 let texture1: Texture;
@@ -139,8 +139,8 @@ async function onInit() {
   GL.clearColor(0.0, 0.0, 0.0, 1.0);
 
   await shader.load(
-    path.join(__dirname, "assets", "shaders", "camera.vert"),
-    path.join(__dirname, "assets", "shaders", "camera.frag")
+    path.join(import.meta.dirname, "assets", "shaders", "camera.vert"),
+    path.join(import.meta.dirname, "assets", "shaders", "camera.frag")
   );
 
   GL.enable(GL.TEXTURE_2D);
@@ -152,7 +152,7 @@ async function onInit() {
   GL.enable(GL.BLEND);
   GL.enable(GL.DEPTH_TEST);
 
-  texture1 = await Texture.load(path.join(__dirname, 'assets', 'textures', 'bloco.jpg'));
+  texture1 = await Texture.load(path.join(import.meta.dirname, 'assets', 'textures', 'bloco.jpg'));
 
   browser = new NativeBrowser({
     hwnd: GLUT.getWindowHandle(),

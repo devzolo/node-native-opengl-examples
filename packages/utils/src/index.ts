@@ -1,6 +1,6 @@
-export * from './Camera';
-export * from './Texture';
-export * from './Benchmark';
+export * from './Camera.ts';
+export * from './Texture.ts';
+export * from './Benchmark.ts';
 
 
 // The following code is a fancy bit of math that is eqivilant to calling:

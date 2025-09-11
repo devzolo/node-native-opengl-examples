@@ -4,8 +4,8 @@ import GLUT from '@devzolo/node-native-glut';
 import GLM from '@devzolo/node-native-glm';
 import { NativeBrowser, NativeBrowserUpdate, eKeyEventType } from '@devzolo/node-native-browser';
 import { watchFile } from 'fs';
-import { Camera, CameraMovement } from './camera';
-import { compilaShaders, Benchmark } from 'utils';
+import { Camera, CameraMovement } from './camera.ts';
+import { compilaShaders, Benchmark } from 'utils/src/index.ts';
 
 const camera = new Camera(new GLM.vec3(0, 0, -3));
 let shader: number;
@@ -108,7 +108,7 @@ export function drawBackground() {
   GL.callList(drawBackgroundList);
 }
 
-const file = `${__dirname}/index.html`;
+const file = `${import.meta.dirname}/index.html`;
 //detect changes on file
 
 watchFile(file, (curr, prev) => {
@@ -165,10 +165,15 @@ async function initialize() {
   const width = 800;
   const height = 800;
   const data = [
-    { url: 'https://www.youtube.com/watch?v=sfFQrhajs6o' },
-    { url: 'https://github.com/rafz' },
-    { url: 'https://github.com/devzolo' },
-    { url: `${__dirname}/index.html` },
+    { url: 'https://www.youtube.com/watch?v=Mby3daKBAuw?1' },
+    { url: 'https://www.youtube.com/watch?v=Mby3daKBAuw?2' },
+    { url: 'https://www.youtube.com/watch?v=Mby3daKBAuw?3' },
+    { url: 'https://www.youtube.com/watch?v=Mby3daKBAuw?4' },
+    { url: 'https://www.youtube.com/watch?v=Mby3daKBAuw?5' },
+    { url: 'https://www.youtube.com/watch?v=Mby3daKBAuw?6' },
+    { url: 'https://www.youtube.com/watch?v=Mby3daKBAuw?7' },
+
+    // { url: `${import.meta.dirname}/index.html` },
   ];
 
   for (const item of data) {
@@ -372,7 +377,7 @@ function specialUpFunc(key: number) {
   }
 }
 function initGL() {
-  shader = compilaShaders(__dirname + '/shaders/flatcolor.vert', __dirname + '/shaders/flatcolor.frag');
+  shader = compilaShaders(import.meta.dirname + '/shaders/flatcolor.vert', import.meta.dirname + '/shaders/flatcolor.frag');
 
   vertexArrayId = GL.genVertexArrays(1);
   GL.bindVertexArray(vertexArrayId);

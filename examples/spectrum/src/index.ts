@@ -5,8 +5,8 @@ import GLU from '@devzolo/node-native-glu';
 import GLUT from '@devzolo/node-native-glut';
 import { NativeSound } from '@devzolo/node-native-sound';
 import { Benchmark } from 'utils';
-import { drawBackground, drawCube, drawNode } from './elements';
-import { clamp } from './utils';
+import { drawBackground, drawCube, drawNode } from './elements.ts';
+import { clamp } from './utils.ts';
 
 const BANDS = 28;
 const BANDSDIV2 = BANDS / 2;
@@ -84,7 +84,7 @@ function onReSize(width: number, height: number): void {
 function initialize() {
   //g_font = CreateOutlineFont("Verdana",1,0.5,0.1,400,false,false,false,false);
 
-  sound = new NativeSound(path.join(__dirname, '..', 'assets', 'music', 'test.mp3'));
+  sound = new NativeSound(path.join(import.meta.dirname, '..', 'assets', 'music', 'test.mp3'));
 
   for (let i = 0; i < BANDS; i++) BAND_COLOR[i] = Math.random() * 0xffffffff;
 
@@ -197,6 +197,8 @@ async function onDrawCene(): Promise<void> {
   GL.scalef(0.05, 0.05, 0.05);
 
   drawBackground();
+
+
   updateSpectrum();
 
   //drawText(g_font, FPS(), -0.98, 0.94, 0.05);

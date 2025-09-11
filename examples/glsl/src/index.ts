@@ -25,14 +25,14 @@
 import GL from '@devzolo/node-native-gl';
 import GLU from '@devzolo/node-native-glu';
 import GLUT from '@devzolo/node-native-glut';
-import fs from 'fs';
-import path from 'path';
+import fs from 'node:fs';
+import path from 'node:path';
 
 function system(cmd: string): void {
   console.log(cmd);
 }
 
-function normaliza(norm: Float32Array): Float32Array {
+function normaliza(norm: Float32Array) {
   const tam: GLfloat = Math.sqrt(norm[0] * norm[0] + norm[1] * norm[1] + norm[2] * norm[2]);
   if (tam == 0) return norm;
   return Float32Array.from([norm[0] / tam, norm[1] / tam, norm[2] / tam]);
@@ -70,7 +70,7 @@ const luzDifusa = Float32Array.from([1.0, 1.0, 1.0, 1.0]);
 const luzEspecular = Float32Array.from([1.0, 1.0, 1.0, 1.0]);
 
 // Direção da luz
-let dirLuz = Float32Array.from([0.0, 0.0, 0.0]);
+let dirLuz = Float32Array.from([0.0, 0.0, 0.0]) as Float32Array;
 
 // Alvo do spot (utilizado para calcular a direção)
 const alvoSpot = Float32Array.from([0.0, 0.0, 0.0]);
@@ -355,7 +355,7 @@ function gerenciaMovim(x: number, y: number): void {
 }
 
 function carregaArquivo(filePath: string): string {
-  return fs.readFileSync(path.resolve(path.join(__dirname, filePath)), 'utf8');
+  return fs.readFileSync(path.resolve(path.join(import.meta.dirname, filePath)), 'utf8');
 }
 
 // Função que recebe o handle de um shader/programa e retorna

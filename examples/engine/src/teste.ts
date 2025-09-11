@@ -1,4 +1,4 @@
-import { TsxTeste } from "./react-teste/TsxTeste"
+import { TsxTeste } from "./react-teste/TsxTeste.ts"
 
 function drawTsx3D(component: any) {
   const { children } = component.props;

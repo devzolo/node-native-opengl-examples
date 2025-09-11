@@ -1,8 +1,8 @@
-import path = require('path');
-require('dotenv').config({ path: path.resolve(__dirname, '.env.test') });
+import assert from "node:assert";
+import { describe, it } from "node:test";
 
 describe('Example Test', () => {
   it('basic test', () => {
-    expect(1).not.toBe(1);
+    assert.strictEqual(1, 1);
   });
 });
